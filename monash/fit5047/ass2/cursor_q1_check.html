@@ -1,0 +1,341 @@
+<!DOCTYPE html><html><head>
+      <title>cursor_q1_check</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview h1 {
+  font-size: 2rem;
+  margin-top: 80px;
+  text-align: center;
+}
+.markdown-preview.markdown-preview h2 {
+  border-bottom: 1px solid #000;
+  font-size: 1.4rem;
+}
+.markdown-preview.markdown-preview h3 {
+  font-size: 1.3rem;
+}
+.markdown-preview.markdown-preview h4 {
+  font-size: 1.2rem;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="检查-q1md-文件中的错误">检查 <a href="http://q1.md">q1.md</a> 文件中的错误 </h1>
+<p><em>Exported on 2025/9/27 at GMT+10 3:54:56 from Cursor (1.6.45)</em></p>
+<hr>
+<p><strong>User</strong></p>
+<p>检查@q1.md 是否存在错误。</p>
+<hr>
+<p><strong>Cursor</strong></p>
+<h3 id="结论简要">结论（简要） </h3>
+<ul>
+<li>仅发现一处实质性错误：Q1(a) 中 ϕ₃ 的“可满足性”示例里，未给出令 <code>A ↔ B = T</code> 的充分条件（需要指定 <code>B = T</code>，或改为依赖 <code>D = T</code> 时 <code>C → D</code> 恒真）。</li>
+</ul>
+<h3 id="具体问题与修正建议">具体问题与修正建议 </h3>
+<ul>
+<li>位置：Q1(a) ϕ₃“可满足性”部分</li>
+</ul>
+<pre data-role="codeBlock" data-info="70:74:/Users/alex/Alex/monash/FIT5047 - Fundamentals of artificial intelligence/assignment2/q1.md" class="language-70:74:/users/alex/alex/monash/fit5047 70:74:/Users/alex/Alex/monash/FIT5047"><code>- Based on the counterexample, set $A = T, D = T$.
+- For the first conjunct:
+-    - $A ↔ B = T$
+-    - Hence the first conjunct is still **True**.
+</code></pre><ul>
+<li>问题说明：仅设置 <code>A = T, D = T</code> 并不能保证 <code>A ↔ B = T</code>，还需指定 <code>B = T</code>。事实上，这里不需要依赖 <code>A ↔ B</code> 为真：因为当 <code>D = T</code> 时，<code>C → D</code> 恒为真，因此第一合取项 <code>((A ↔ B) ∨ (C → D))</code> 已经为真。</li>
+<li>建议修改为其一：
+<ul>
+<li>方案1（最简洁）：将“<code>A ↔ B = T</code>”替换为“由于 <code>D = T</code>，<code>C → D</code> 恒为真，故第一合取项为真。”</li>
+<li>方案2（保留原意）：补充并明确指定 <code>B = T</code>，从而令 <code>A ↔ B = T</code> 成立。</li>
+</ul>
+</li>
+</ul>
+<h3 id="其余内容复核要点">其余内容复核要点 </h3>
+<ul>
+<li>
+<p>Q1(a) ϕ₁、ϕ₂ 的不可有效性与可满足性举例均正确。</p>
+</li>
+<li>
+<p>Q1(b) 三个公式的 CNF 推导与 Horn 判断整体正确（ϕ₁ 简化至单一子句 <code>(¬A ∨ C ∨ D ∨ ¬E)</code> 合理；ϕ₂ 的右侧等价分解正确；ϕ₃ 的分配律使用正确）。</p>
+</li>
+<li>
+<p>Q1(c) 在 <code>F = F</code> 下的可满足性判断与“当 <code>D = T</code> 时，<code>A</code> 与 <code>B</code> 不能同时为真”的推断正确。</p>
+</li>
+<li>
+<p>我已完整检查该文件，并定位并说明了唯一需要修正的表述问题；如需，我可以直接为你应用该处文字修改。</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="plaintext" class="language-plaintext plaintext"><code>- Based on the counterexample, set $A = T, D = T$.
+- For the first conjunct:
+-    - $A ↔ B = T$
+-    - Hence the first conjunct is still **True**.
+</code></pre><hr>
+<p><strong>User</strong></p>
+<p>直接修改文件，直接利用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">D=T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span> 使得 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>→</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">C→D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span> 恒为真这一事实来完成证明。</p>
+<hr>
+<p><strong>Cursor</strong></p>
+<p>我将更新 <code>q1.md</code> 中 Q1(a) 的 ϕ₃“可满足性”段落，用 <code>D = T</code> 直接推出 <code>C → D</code> 恒为真，从而使第一合取项为真，并保留其余推理不变。接下来我会进行编辑。</p>
+<p>我将把 ϕ₃“可满足性”段落的论证改为直接引用“当 D = T 时，C → D 恒为真”，并修正第二合取项为“前件为 False，因此蕴涵为 True”。随后我会应用编辑。</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> Q1</span>
+
+<span class="token title important"><span class="token punctuation">##</span> (a) Determine whether the clause is valid, satisfiable but not valid, or unsatisfiable.</span>
+
+<span class="token title important"><span class="token punctuation">###</span> ϕ₁: *Satisfiable but not valid.*</span>
+
+<span class="token blockquote punctuation">&gt;</span> $ϕ₁ = ((A ∨ (B → C)) ∧ (¬C ∨ D)) → ((A → D) ∨ (C ↔ E))$
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Counterexample:</span><span class="token punctuation">**</span></span>
+
+<span class="token list punctuation">-</span> Take $A = T, D = F, C = F, E = T$ (and $B$ arbitrary)
+<span class="token list punctuation">-</span> For antecedent $(A ∨ (B → C)) ∧ (¬C ∨ D)$:
+    <span class="token list punctuation">-</span> $A$ is $T$, so $(A ∨ (B → C))$ is $T$.
+    <span class="token list punctuation">-</span> $C$ is $F$, so $¬C$ is $T$, and $(¬C ∨ D)$ is $T$.
+    <span class="token list punctuation">-</span> the antecedent is $T ∧ T$, which is <span class="token bold"><span class="token punctuation">**</span><span class="token content">True</span><span class="token punctuation">**</span></span>.
+<span class="token list punctuation">-</span> For consequent $(A → D) ∨ (C ↔ E)$:
+    <span class="token list punctuation">-</span> $A → D$ is $T → F$, which is $F$.
+    <span class="token list punctuation">-</span> $C ↔ E$ is $F ↔ T$, which is $F$.
+    <span class="token list punctuation">-</span> the consequent is $F ∨ F$, which is <span class="token bold"><span class="token punctuation">**</span><span class="token content">False</span><span class="token punctuation">**</span></span>.
+<span class="token list punctuation">-</span> So $ϕ₁ ≡ T → F$, which is <span class="token bold"><span class="token punctuation">**</span><span class="token content">False</span><span class="token punctuation">**</span></span>. Hence $ϕ₁$ is not valid.
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Satisfiable:</span><span class="token punctuation">**</span></span>
+
+Set $D=T$, then $A → D$ is true, so the consequent is <span class="token bold"><span class="token punctuation">**</span><span class="token content">True</span><span class="token punctuation">**</span></span> ($T ∨ F$), making the whole formula to <span class="token bold"><span class="token punctuation">**</span><span class="token content">True</span><span class="token punctuation">**</span></span> ($T → T$). Hence $ϕ₁$ is <span class="token bold"><span class="token punctuation">**</span><span class="token content">Satisfiable</span><span class="token punctuation">**</span></span>.
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> ϕ₂: *Satisfiable but not valid.*</span>
+
+<span class="token blockquote punctuation">&gt;</span> $ϕ₂ = (((¬A ∧ B) ∨ (C → D)) ∧ (¬E ∨ A)) → ((¬D ∨ F) ↔ (A ∧ B))$
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Counterexample:</span><span class="token punctuation">**</span></span>
+
+<span class="token list punctuation">-</span> Take $A = T, B = T, D = T, F = F$ (and $C, E$ arbitrary)
+<span class="token list punctuation">-</span> For antecedent $((¬A ∧ B) ∨ (C → D)) ∧ (¬E ∨ A)$:
+    <span class="token list punctuation">-</span> $A$ is $T$, so $¬A$ is $F$, and $(¬A ∧ B)$ is $F$.
+    <span class="token list punctuation">-</span> $D$ is $T$, so $(C → D)$ is $T$.
+    <span class="token list punctuation">-</span> $A$ is $T$, so $(¬E ∨ A)$ is $T$.
+    <span class="token list punctuation">-</span> So the antecedent is $(F ∨ T) ∧ T$, which is <span class="token bold"><span class="token punctuation">**</span><span class="token content">True</span><span class="token punctuation">**</span></span>.
+<span class="token list punctuation">-</span> For consequent $(¬D ∨ F) ↔ (A ∧ B)$:
+    <span class="token list punctuation">-</span> $D$ is $T$, so $¬D$ is $F$, and $F$ is $F$, so $¬D ∨ F ≡ F ∨ F$, which is $F$.
+    <span class="token list punctuation">-</span> $A$ is $T$, and $B$ is $T$, so $A ∧ B ≡ T ∧ T$, which is $T$.
+    <span class="token list punctuation">-</span> Thus the consequent is $F ↔ T$, which is <span class="token bold"><span class="token punctuation">**</span><span class="token content">False</span><span class="token punctuation">**</span></span>.
+<span class="token list punctuation">-</span> So $ϕ₂ ≡ T → F$, which is <span class="token bold"><span class="token punctuation">**</span><span class="token content">False</span><span class="token punctuation">**</span></span>. Hence $ϕ₂$ is not valid.
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Satisfiable:</span><span class="token punctuation">**</span></span>
+
+Based on the counterexample, set $A = F,E = T$. Then $¬E ∨ A = F$, making the antecedent <span class="token bold"><span class="token punctuation">**</span><span class="token content">False</span><span class="token punctuation">**</span></span>, hence the whole implication is <span class="token bold"><span class="token punctuation">**</span><span class="token content">True</span><span class="token punctuation">**</span></span>. Therefore $ϕ₂$ is <span class="token bold"><span class="token punctuation">**</span><span class="token content">Satisfiable</span><span class="token punctuation">**</span></span>.
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> ϕ₃: *Satisfiable but not valid.*</span>
+
+<span class="token blockquote punctuation">&gt;</span> $ϕ₃ = ((A ↔ B) ∨ (C → D)) ∧ ((¬A ∨ ¬D) → (F ∧ ¬G))$
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Counterexample:</span><span class="token punctuation">**</span></span>
+
+<span class="token list punctuation">-</span> Take $A = F, B = F, D = T, F = F, G = F$ (and $C$ arbitrary)
+<span class="token list punctuation">-</span> For first conjunct $((A ↔ B) ∨ (C → D))$:
+    <span class="token list punctuation">-</span> Since $A = F$ and $B = F$, so $A ↔ B = T$. 
+    <span class="token list punctuation">-</span> Hence the first conjunct is <span class="token bold"><span class="token punctuation">**</span><span class="token content">True</span><span class="token punctuation">**</span></span>.
+<span class="token list punctuation">-</span> For second conjunct $((¬A ∨ ¬D) → (F ∧ ¬G))$:
+    <span class="token list punctuation">-</span> Since $A = F$, so $¬A = T$, then the antecedent $(¬A ∨ ¬D)$ is True.
+    <span class="token list punctuation">-</span> $F ∧ ¬G = F ∧ T$, which is False.
+    <span class="token list punctuation">-</span> Hence the second conjunct is $T → F$, which is <span class="token bold"><span class="token punctuation">**</span><span class="token content">False</span><span class="token punctuation">**</span></span>.
+<span class="token list punctuation">-</span> The whole formula is $ϕ₃ ≡ T ∧ F$, which is <span class="token bold"><span class="token punctuation">**</span><span class="token content">False</span><span class="token punctuation">**</span></span>. Hence $ϕ₃$ is not valid.
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Satisfiable:</span><span class="token punctuation">**</span></span>
+
+<span class="token list punctuation">-</span> Based on the counterexample, set $A = T, D = T$.
+<span class="token list punctuation">-</span> For the first conjunct:
+    <span class="token list punctuation">-</span> Since $D = T$, $(C → D)$ is $T$, so $((A ↔ B) ∨ (C → D))$ is <span class="token bold"><span class="token punctuation">**</span><span class="token content">True</span><span class="token punctuation">**</span></span>.
+<span class="token list punctuation">-</span> For the second conjunct:
+    <span class="token list punctuation">-</span> $¬A ∨ ¬D ≡ F ∨ F$, which is False.
+    <span class="token list punctuation">-</span> Thus $(¬A ∨ ¬D) → (F ∧ ¬G)$ has a False antecedent, hence is <span class="token bold"><span class="token punctuation">**</span><span class="token content">True</span><span class="token punctuation">**</span></span>.
+<span class="token list punctuation">-</span> Thus the whole formula is <span class="token bold"><span class="token punctuation">**</span><span class="token content">True</span><span class="token punctuation">**</span></span>. Hence $ϕ₃$ is satisfiable.
+
+<span class="token title important"><span class="token punctuation">##</span> (b) Convert each formula into CNF. Identify Horn clauses where applicable.</span>
+
+<span class="token title important"><span class="token punctuation">###</span> ϕ₁</span>
+
+<span class="token blockquote punctuation">&gt;</span> $ϕ₁ = ((A ∨ (B → C)) ∧ (¬C ∨ D)) → ((A → D) ∨ (C ↔ E))$
+
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Eliminate implications and equivalences</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">-</span> $B → C ≡ (¬B ∨ C)$
+    <span class="token list punctuation">-</span> $A → D ≡ (¬A ∨ D)$
+    <span class="token list punctuation">-</span> $C ↔ E ≡ (¬C ∨ E) ∧ (¬E ∨ C)$
+    <span class="token list punctuation">-</span> So the formula is $((A ∨ (¬B ∨ C)) ∧ (¬C ∨ D)) → ((¬A ∨ D) ∨ ((¬C ∨ E) ∧ (¬E ∨ C)))$
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Replace the Outer Implication</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">-</span> Take the whole formula as $X → Y$, then $X → Y ≡ (¬X ∨ Y)$
+    <span class="token list punctuation">-</span> The formula becomes: $¬((A ∨ ¬B ∨ C) ∧ (¬C ∨ D)) ∨ ((¬A ∨ D) ∨ ((¬C ∨ E) ∧ (¬E ∨ C)))$ 
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Apply De Morgan's Law to the left part</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">-</span> Left is $¬(X ∧ Y)$, where $X = A ∨ ¬B ∨ C$ and $Y = ¬C ∨ D$.
+    <span class="token list punctuation">-</span> $¬(X ∧ Y) ≡ ¬X ∨ ¬Y$
+    <span class="token list punctuation">-</span> $¬X = ¬(A ∨ ¬B ∨ C) ≡ ¬A ∧ ¬(¬B) ∧ ¬C ≡ ¬A ∧ B ∧ ¬C$ (De Morgan's Law)
+    <span class="token list punctuation">-</span> $¬Y = ¬(¬C ∨ D) ≡ ¬(¬C) ∧ ¬D ≡ C ∧ ¬D$ (De Morgan's Law)
+    <span class="token list punctuation">-</span> Thus, the left part becomes: $(¬A ∧ B ∧ ¬C) ∨ (C ∧ ¬D)$
+ <span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">First distribute the inner conjunction on the right</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">-</span> $((¬A ∨ D) ∨ ((¬C ∨ E) ∧ (¬E ∨ C))) ≡ (¬A ∨ D ∨ ¬C ∨ E) ∧ (¬A ∨ D ∨ ¬E ∨ C)$
+    <span class="token list punctuation">-</span> Let the two clauses be:
+        <span class="token list punctuation">-</span> $S₁ = (¬A ∨ D ∨ ¬C ∨ E)$
+        <span class="token list punctuation">-</span> $S₂ = (¬A ∨ D ∨ ¬E ∨ C)$
+    <span class="token list punctuation">-</span> Thus, the right part becomes: $S₁ ∧ S₂$
+ <span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">The whole formula becomes the conjunction of two disjunctions</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">-</span> $[(¬A ∧ B ∧ ¬C) ∨ (C ∧ ¬D) ∨ S₁] ∧ [(¬A ∧ B ∧ ¬C) ∨ (C ∧ ¬D) ∨ S₂]$
+ <span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Distribute and simplify the first term (CNF-compatible)</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">-</span> $(C ∧ ¬D) ∨ S₁ ≡ (C ∨ S₁) ∧ (¬D ∨ S₁)$
+    <span class="token list punctuation">-</span> But $C ∨ S₁ = C ∨ (¬A ∨ D ∨ ¬C ∨ E)$ contains $C ∨ ¬C$, which is a tautology; $¬D ∨ S₁$ contains $¬D ∨ D$, also a tautology.
+    <span class="token list punctuation">-</span> Therefore, $(C ∧ ¬D) ∨ S₁$ is a tautology, hence
+    <span class="token list punctuation">-</span> $[(¬A ∧ B ∧ ¬C) ∨ (C ∧ ¬D) ∨ S₁]$ is a tautology
+    <span class="token list punctuation">-</span> This whole conjunct can be dropped
+ <span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Distribute and simplify the second term</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">-</span> $(C ∧ ¬D) ∨ S₂ ≡ (C ∨ S₂) ∧ (¬D ∨ S₂)$
+    <span class="token list punctuation">-</span> Here $C ∨ S₂ = S₂$ (because $S₂$ already contains $C$), and $¬D ∨ S₂$ contains $¬D ∨ D$, which is a tautology.
+    <span class="token list punctuation">-</span> Therefore, $(C ∧ ¬D) ∨ S₂ ≡ S₂$, hence
+    <span class="token list punctuation">-</span> $[(¬A ∧ B ∧ ¬C) ∨ S₂] ≡ (¬A ∨ S₂) ∧ (B ∨ S₂) ∧ (¬C ∨ S₂)$, where:
+        <span class="token list punctuation">-</span> $¬A ∨ S₂ = S₂$ (since $S₂$ already contains $¬A$)
+        <span class="token list punctuation">-</span> $¬C ∨ S₂ = (¬C ∨ ¬A ∨ D ∨ ¬E ∨ C)$ contains $¬C ∨ C$, a tautology, so it can be removed
+        <span class="token list punctuation">-</span> The remaining $(B ∨ S₂)$ is a superset clause compared to $S₂$ (weaker), and is redundant in CNF, so it can be removed
+ <span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Final CNF</span><span class="token punctuation">**</span></span>
+  $(¬A ∨ C ∨ D ∨ ¬E)$
+ <span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Horn check</span><span class="token punctuation">**</span></span>
+  The clause $¬A ∨ C ∨ D ∨ ¬E$ contains two positive literals $D$ and $C$ (more than one positive literal), therefore it is not a Horn clause, hence ϕ₁ is not a Horn formula.
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> ϕ₂</span>
+
+<span class="token blockquote punctuation">&gt;</span> $ϕ₂ = (((¬A ∧ B) ∨ (C → D)) ∧ (¬E ∨ A)) → ((¬D ∨ F) ↔ (A ∧ B))$
+
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Eliminate implications and equivalences</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> $C → D ≡ (¬C ∨ D)$
+  <span class="token list punctuation">-</span> $(¬D ∨ F) ↔ (A ∧ B) ≡ [(¬D ∨ F) ∨ ¬(A ∧ B)] ∧ [¬(¬D ∨ F) ∨ (A ∧ B)]$
+    <span class="token list punctuation">-</span> First conjunct: $(¬D ∨ F ∨ ¬A ∨ ¬B)$
+    <span class="token list punctuation">-</span> Second conjunct: $([D ∧ ¬F] ∨ [A ∧ B])$  
+      Distribute to CNF: $(D ∨ A) ∧ (D ∨ B) ∧ (¬F ∨ A) ∧ (¬F ∨ B)$
+  <span class="token list punctuation">-</span> So the right-hand side (call it $Y$) is:  
+    $Y ≡ (D ∨ A) ∧ (D ∨ B) ∧ (¬F ∨ A) ∧ (¬F ∨ B) ∧ (¬D ∨ F ∨ ¬A ∨ ¬B)$
+  <span class="token list punctuation">-</span> Left-hand side (call it $X$):  
+    $X ≡ [ (¬A ∧ B) ∨ (¬C ∨ D) ] ∧ (¬E ∨ A)$
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Replace the outer implication</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> The formula is $X → Y ≡ (¬X ∨ Y)$
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Negate the left part and simplify</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> Let $X1 = ( (¬A ∧ B) ∨ (¬C ∨ D) )$, $X2 = (¬E ∨ A)$  
+    Then $¬X = ¬(X1 ∧ X2) ≡ ¬X1 ∨ ¬X2$
+  <span class="token list punctuation">-</span> $¬X2 = ¬(¬E ∨ A) ≡ (E ∧ ¬A)$
+  <span class="token list punctuation">-</span> $¬X1 = ¬( (¬A ∧ B) ∨ (¬C ∨ D) ) ≡ ¬(¬A ∧ B) ∧ ¬(¬C ∨ D)$  
+    $≡ (A ∨ ¬B) ∧ (C ∧ ¬D)$
+  <span class="token list punctuation">-</span> So $¬X ≡ [ (A ∨ ¬B) ∧ C ∧ ¬D ] ∨ [ E ∧ ¬A ]$
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Combine into $(¬X ∨ Y)$</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> Using distribution $(P ∨ (Y_1 ∧ … ∧ Y_n)) ≡ (P ∨ Y_1) ∧ … ∧ (P ∨ Y_n)$  
+    Set $P := ¬X$, expand over each clause of $Y$
+  <span class="token list punctuation">-</span> After simplification, tautology elimination, and subsumption removal, the final CNF is obtained
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Final CNF</span><span class="token punctuation">**</span></span>
+  $(A ∨ C ∨ D ∨ E) ∧  
+   (A ∨ D ∨ E ∨ ¬B) ∧  
+   (B ∨ C ∨ D ∨ ¬A) ∧  
+   (A ∨ E ∨ ¬D ∨ ¬F) ∧  
+   (B ∨ ¬A ∨ ¬D ∨ ¬F) ∧  
+   (F ∨ ¬A ∨ ¬B ∨ ¬D)$
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Horn check</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> $(A ∨ C ∨ D ∨ E)$ → 4 positives → not Horn  
+  <span class="token list punctuation">-</span> $(A ∨ D ∨ E ∨ ¬B)$ → 3 positives → not Horn  
+  <span class="token list punctuation">-</span> $(B ∨ C ∨ D ∨ ¬A)$ → 3 positives → not Horn  
+  <span class="token list punctuation">-</span> $(A ∨ E ∨ ¬D ∨ ¬F)$ → 2 positives → not Horn  
+  <span class="token list punctuation">-</span> $(B ∨ ¬A ∨ ¬D ∨ ¬F)$ → 1 positive → Horn  
+  <span class="token list punctuation">-</span> $(F ∨ ¬A ∨ ¬B ∨ ¬D)$ → 1 positive → Horn  
+  <span class="token list punctuation">-</span> Since there are multiple non-Horn clauses, $ϕ₂$ is <span class="token bold"><span class="token punctuation">**</span><span class="token content">not a Horn formula</span><span class="token punctuation">**</span></span>.
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> ϕ₃</span>
+
+<span class="token blockquote punctuation">&gt;</span> $ϕ₃ = ((A ↔ B) ∨ (C → D)) ∧ ((¬A ∨ ¬D) → (F ∧ ¬G))$
+
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Eliminate implications/equivalences</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> $A ↔ B ≡ (¬A ∨ B) ∧ (¬B ∨ A)$
+  <span class="token list punctuation">-</span> $C → D ≡ (¬C ∨ D)$
+  <span class="token list punctuation">-</span> $(¬A ∨ ¬D) → (F ∧ ¬G) ≡ ¬(¬A ∨ ¬D) ∨ (F ∧ ¬G) ≡ (A ∧ D) ∨ (F ∧ ¬G)$
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">CNF of the first conjunct</span><span class="token punctuation">**</span></span>  
+  $((A ↔ B) ∨ (C → D))$
+  <span class="token list punctuation">-</span> Replace: $((¬A ∨ B) ∧ (¬B ∨ A)) ∨ (¬C ∨ D)$
+  <span class="token list punctuation">-</span> Distribute: $(X ∧ Y) ∨ Z ≡ (X ∨ Z) ∧ (Y ∨ Z)$
+    <span class="token list punctuation">-</span> $S₁ := (¬A ∨ B ∨ ¬C ∨ D)$
+    <span class="token list punctuation">-</span> $S₂ := (¬B ∨ A ∨ ¬C ∨ D)$
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">CNF of the second conjunct</span><span class="token punctuation">**</span></span>  
+  $(A ∧ D) ∨ (F ∧ ¬G)$
+  <span class="token list punctuation">-</span> Distribute: $X ∨ (Y ∧ Z) ≡ (X ∨ Y) ∧ (X ∨ Z)$
+  <span class="token list punctuation">-</span> With $X$ as $A$, then as $D$:
+    <span class="token list punctuation">-</span> $(A ∨ F) ∧ (A ∨ ¬G) ∧ (D ∨ F) ∧ (D ∨ ¬G)$
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Combine (overall CNF is the conjunction of all clauses)</span><span class="token punctuation">**</span></span>
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Final CNF</span><span class="token punctuation">**</span></span>
+  $(¬A ∨ B ∨ ¬C ∨ D) ∧ (¬B ∨ A ∨ ¬C ∨ D) ∧ (A ∨ F) ∧ (A ∨ ¬G) ∧ (D ∨ F) ∧ (D ∨ ¬G)$
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Horn check</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> $(¬A ∨ B ∨ ¬C ∨ D)$ → 2positives → <span class="token bold"><span class="token punctuation">**</span><span class="token content">not Horn</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> $(¬B ∨ A ∨ ¬C ∨ D)$ → 2 positives → <span class="token bold"><span class="token punctuation">**</span><span class="token content">not Horn</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> $(A ∨ F)$ → 2 positives → <span class="token bold"><span class="token punctuation">**</span><span class="token content">not Horn</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> $(A ∨ ¬G)$ → 1 positive → <span class="token bold"><span class="token punctuation">**</span><span class="token content">Horn</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> $(D ∨ F)$ → 2 positives → <span class="token bold"><span class="token punctuation">**</span><span class="token content">not Horn</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> $(D ∨ ¬G)$ → 1 positive → <span class="token bold"><span class="token punctuation">**</span><span class="token content">Horn</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> Since there are several non-Horn clauses, $ϕ₃$ is <span class="token bold"><span class="token punctuation">**</span><span class="token content">not a Horn formula</span><span class="token punctuation">**</span></span>.
+
+<span class="token title important"><span class="token punctuation">##</span> (c) For ϕ₂, assume F is always false:  </span>
+
+<span class="token title important"><span class="token punctuation">###</span> 1. What is the effect on satisfiability?</span>
+
+<span class="token italic"><span class="token punctuation">*</span><span class="token content">ϕ₂ remains satisfiable but not valid.</span><span class="token punctuation">*</span></span>
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Counterexample</span><span class="token punctuation">**</span></span> (with $F = F$):  
+
+<span class="token list punctuation">-</span> Take $A = T, B = T, D = T, F = F$ (and $C, E$ arbitrary)  
+<span class="token list punctuation">-</span> As in the original counterexample in (a), the antecedent is <span class="token bold"><span class="token punctuation">**</span><span class="token content">True</span><span class="token punctuation">**</span></span>, but the consequent becomes $(¬D ∨ F) ↔ (A ∧ B) ≡ (F ∨ F) ↔ T ≡ F ↔ T$, which is <span class="token bold"><span class="token punctuation">**</span><span class="token content">False</span><span class="token punctuation">**</span></span>.  
+<span class="token list punctuation">-</span> So $ϕ₂ ≡ T → F$, which is <span class="token bold"><span class="token punctuation">**</span><span class="token content">False</span><span class="token punctuation">**</span></span>. Hence not valid even with $F = F$.  
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Satisfiable</span><span class="token punctuation">**</span></span> (with $F = F$):
+
+<span class="token list punctuation">-</span> Take $A = F, E = T, F = F$ (and $B, C, D$ arbitrary)  
+<span class="token list punctuation">-</span> As in the original satisfiability demonstration in (a), the antecedent becomes <span class="token bold"><span class="token punctuation">**</span><span class="token content">False</span><span class="token punctuation">**</span></span> (since $¬E ∨ A = F$), making the implication <span class="token bold"><span class="token punctuation">**</span><span class="token content">True</span><span class="token punctuation">**</span></span>. Hence satisfiable even with $F = F$.
+
+<span class="token title important"><span class="token punctuation">###</span> 2. Can you infer anything about A or B? Justify.</span>
+
+<span class="token italic"><span class="token punctuation">*</span><span class="token content">Yes, we can infer that <span class="token bold"><span class="token punctuation">**</span><span class="token content">A and B cannot both be true if D is true</span><span class="token punctuation">**</span></span> (i.e., if D = T, then ¬(A ∧ B)).</span><span class="token punctuation">*</span></span>
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Justification:</span><span class="token punctuation">**</span></span>  
+
+<span class="token list punctuation">-</span> With $F = F$, the consequent simplifies to $(¬D ∨ F) ↔ (A ∧ B) ≡ ¬D ↔ (A ∧ B)$.  
+<span class="token list punctuation">-</span> This is equivalent to $(¬D → (A ∧ B)) ∧ ((A ∧ B) → ¬D)$, or $(D ∨ ¬A ∨ ¬B) ∧ (¬A ∨ ¬B ∨ ¬D)$ after expansion, but more importantly, it means $(A ∧ B) ⇔ ¬D$.  
+<span class="token list punctuation">-</span> From the CNF under $F = F$ (as derived earlier, including the clause $¬A ∨ ¬B ∨ ¬D$), the formula implies $¬(A ∧ B ∧ D)$.  
+<span class="token list punctuation">-</span> Therefore, in any satisfying assignment where ϕ₂ is true and $F = F$, if $D = T$, then at least one of $A$ or $B$ must be false. Conversely, both $A$ and $B$ can be true only if $D = F$.  
+<span class="token list punctuation">-</span> However, no unconditional truth values are forced for $A$ or $B$ individually, as there exist satisfying assignments for all combinations of $A$ and $B$ by appropriately setting $D$ and other variables.
+</code></pre><p>已按你的要求完成编辑：在 ϕ₃“可满足性”中直接利用 <code>D = T</code> 推出 <code>C → D</code> 恒为真，并将第二合取项表述为“前件为 False，蕴涵为 True”。其余内容未改动。</p>
+<ul>
+<li>影响：不再需要假设 <code>A ↔ B = T</code>；论证更直接且正确。</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

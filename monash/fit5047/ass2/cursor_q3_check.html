@@ -1,0 +1,587 @@
+<!DOCTYPE html><html><head>
+      <title>cursor_q3_check</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview h1 {
+  font-size: 2rem;
+  margin-top: 80px;
+  text-align: center;
+}
+.markdown-preview.markdown-preview h2 {
+  border-bottom: 1px solid #000;
+  font-size: 1.4rem;
+}
+.markdown-preview.markdown-preview h3 {
+  font-size: 1.3rem;
+}
+.markdown-preview.markdown-preview h4 {
+  font-size: 1.2rem;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="检查-q3md-文件中的错误">检查 <a href="http://q3.md">q3.md</a> 文件中的错误 </h1>
+<p><em>Exported on 2025/9/27 at GMT+10 5:03:08 from Cursor (1.6.45)</em></p>
+<hr>
+<p><strong>User</strong></p>
+<p>检查@q3.md 是否存在错误。</p>
+<hr>
+<p><strong>Cursor</strong></p>
+<p>下面是我在 <code>q3.md</code> 中发现的主要问题与建议修改。</p>
+<h3 id="结论">结论 </h3>
+<ul>
+<li>存在关键性错误：第 (d) 问答与其“替代证明”不成立；移除子句 6 后，一般无法再推出目标 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∀</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">∀x.P(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>。</li>
+</ul>
+<h3 id="具体错误定位与说明">具体错误定位与说明 </h3>
+<ol>
+<li>(d) 的结论与证明错误</li>
+</ol>
+<pre data-role="codeBlock" data-info="189:195:/Users/alex/Alex/monash/FIT5047 - Fundamentals of artificial intelligence/assignment2/q3.md" class="language-189:195:/users/alex/alex/monash/fit5047 189:195:/Users/alex/Alex/monash/FIT5047"><code>**No, removing clause 6 does not impact the provability of G.** The goal $∀x. P(x)$ remains a logical consequence of the remaining premises.
+...
+Clause 6 provided the ground fact **C6.1:** $Q(x_6)$, which was a crucial starting point for the short proof derived in part (b). Removing clause 6 invalidates that specific proof path.
+</code></pre><ul>
+<li>结论应为：移除子句 6 会影响可证性，目标不再可由其余子句蕴含。原因：没有了 <code>Q</code> 的正事实后，无法经 <code>C4</code> 得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">¬</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">¬R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 的实例，进而无法用 <code>C2.1</code> 去强制所有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> 的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 为真。</li>
+</ul>
+<ol start="2">
+<li>(d) 中“替代证明”的第 1 步归结不合法（同号不能归结）</li>
+</ol>
+<pre data-role="codeBlock" data-info="201:206:/Users/alex/Alex/monash/FIT5047 - Fundamentals of artificial intelligence/assignment2/q3.md" class="language-201:206:/users/alex/alex/monash/fit5047 201:206:/Users/alex/Alex/monash/FIT5047"><code>1.  **Resolve C8 ($¬P(A)$) and C3.1 ($¬P(x_3) ∨ T(w_3)$):**
+    * With MGU $\{x_3 / A\}$.
+    * **Result (R1):** $T(w_3)$
+</code></pre><ul>
+<li><code>C8</code> 与 <code>C3.1</code> 在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span> 上同为否定文字，不能进行归结，故该步推出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><msub><mi>w</mi><mn>3</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(w_3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 是错误的。此后所有后续步骤均建立在此错误之上，因而整段“替代证明”无效。</li>
+</ul>
+<ol start="3">
+<li>更深层原因（为何移除 6 后不可证）：</li>
+</ol>
+<ul>
+<li>在没有 <code>C6.1: Q(x_6)</code> 的情况下，无法用 <code>C4: ¬R(s(x)) ∨ ¬Q(x)</code> 推出任何具体的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">¬</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">¬R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 实例。缺少这个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">¬</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">¬R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 再配合 <code>C2.1: P(x) ∨ R(z)</code> 去强制得到任意 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> 的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 的关键链路就断了。</li>
+<li>反例模型（简述）：可取一结构使得 <code>R</code> 恒真、<code>Q</code> 恒假、令常元 <code>c1</code> 对应某个域元 <code>a</code> 且 <code>T(a)=真</code>、其他项上 <code>T=假</code>，并保证 <code>h(x,z)</code> 的取值不等于 <code>a</code>，再令 <code>P</code> 恒假（<code>U</code>、<code>S</code> 可按需取值以满足其他子句）。在该模型中，子句 1、2、3、4、5、7 全成立，但 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∀</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">∀x.P(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 为假，证明“移除 6 后 G 不再被蕴含”。</li>
+</ul>
+<h3 id="其余部分">其余部分 </h3>
+<ul>
+<li>(a) CNF 化与 Skolem 化总体正确；(b) 的归结证明路径正确且紧凑；(c) 中“就本证明路径而言未用到的子句”为冗余的表述是合理的。</li>
+<li>(c) “从语义角度没有冗余，因为没有子句被其他子句蕴含”这句话过强，通常需要单独论证；建议弱化为“在本证明路径下未用到，语义冗余不作保证”。</li>
+</ul>
+<h3 id="建议修改文本层面">建议修改（文本层面） </h3>
+<ul>
+<li>将 (d) 的结论改为“移除子句 6 会影响可证性；此时 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∀</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">∀x.P(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 一般不可由其余子句推出”。</li>
+<li>删除 (d) 中错误的“替代证明”步骤，并用反例模型说明不可证性（如上简述）。</li>
+</ul>
+<p>需要我直接在文件里替你改正这两处吗？</p>
+<pre data-role="codeBlock" data-info="plaintext" class="language-plaintext plaintext"><code>**No, removing clause 6 does not impact the provability of G.** The goal $∀x. P(x)$ remains a logical consequence of the remaining premises.
+...
+Clause 6 provided the ground fact **C6.1:** $Q(x_6)$, which was a crucial starting point for the short proof derived in part (b). Removing clause 6 invalidates that specific proof path.
+</code></pre><pre data-role="codeBlock" data-info="plaintext" class="language-plaintext plaintext"><code>1.  **Resolve C8 ($¬P(A)$) and C3.1 ($¬P(x_3) ∨ T(w_3)$):**
+    * With MGU $\{x_3 / A\}$.
+    * **Result (R1):** $T(w_3)$
+</code></pre><hr>
+<p><strong>User</strong></p>
+<p>@q3.md 已更新(d)</p>
+<hr>
+<p><strong>Cursor</strong></p>
+<p>我先打开并核对 <code>q3.md</code> 的 (d) 段内容与整体一致性。</p>
+<p>我已重新读取并核对 <code>q3.md</code>，重点检查 (d)。</p>
+<ul>
+<li>(d) 现在方向正确：已改为“移除子句 6 会影响可证性”，不再依赖先前不合法的归结步骤；与 (b) 的证明链一致。</li>
+<li>小建议：你在 207–211 行做出“不可证明”的结论是成立的，但为完全严谨，可附上一个简短反例模型来支撑该断言（而非仅说明原有路径失败）。例如：取含至少两个域元的结构，令 <code>P</code> 全假、<code>Q</code> 全假、<code>R</code> 全真、<code>T</code> 仅在常元 <code>c1</code> 为真且 <code>h(x,z)</code> 从不取 <code>c1</code>，<code>U</code> 全假（<code>S</code> 任意）。该模型满足 1、2、3、4、5、7，但不满足 <code>∀x.P(x)</code>，从而说明去掉 6 后确实不蕴含目标。</li>
+</ul>
+<p>如果你希望，我可以把这段反例模型精炼地加到 (d) 的说明里。</p>
+<hr>
+<p><strong>User</strong></p>
+<p>好，精炼地增加这个反例</p>
+<hr>
+<p><strong>Cursor</strong></p>
+<p>我将把一个简洁的“反例模型”段落添加到 <code>q3.md</code> 的 (d) 末尾，以严格支持“移除子句 6 后不可证明”的结论。随后我会回报变更结果。</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> Q3</span>
+
+<span class="token blockquote punctuation">&gt;</span> We have below clauses:
+<span class="token blockquote punctuation">&gt;</span> 
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">1.</span> $∃z. R(z) → ∃w. T(w)$
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">2.</span> $∀x ∃y. (∀z. (P(x) ∨ R(z)) ∧ ∃w. (T(w) → Q(y)))$
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">3.</span> $∀w ∃y. (∀x. (P(x) → T(w)) ∧ ∀x. (Q(y) → P(x)))$
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">4.</span> $∀x ∃z. (¬R(z) ∨ ¬Q(x))$
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">5.</span> $∀x. (U(x) → (P(x) ∨ ¬T(f(x))))$
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">6.</span> $∃x. (Q(x) ∧ ¬U(x))$
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">7.</span> $∀x ∀y. (¬P(x) ∨ Q(y) ∨ S(x, y))$
+<span class="token blockquote punctuation">&gt;</span> 
+<span class="token blockquote punctuation">&gt;</span> Goal: $∀x. P(x)$
+
+<span class="token title important"><span class="token punctuation">##</span> (a) Convert all into CNF. Show Skolemization and standardization.</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 1: $∃z. R(z) → ∃w. T(w)$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Eliminate →</span><span class="token punctuation">**</span></span>: $¬(∃z. R(z)) ∨ (∃w. T(w))$
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Move ¬ inwards</span><span class="token punctuation">**</span></span>: $(∀z. ¬R(z)) ∨ (∃w. T(w))$
+<span class="token list punctuation">3.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Convert to Prenex Normal Form</span><span class="token punctuation">**</span></span>: The quantifiers for <span class="token code-snippet code keyword">`z`</span> and <span class="token code-snippet code keyword">`w`</span> are in separate, disjoint scopes. Therefore, the choice of <span class="token code-snippet code keyword">`w`</span> is <span class="token bold"><span class="token punctuation">**</span><span class="token content">independent</span><span class="token punctuation">**</span></span> of <span class="token code-snippet code keyword">`z`</span>. The existential quantifier can and should be moved to the front to reflect this independence.
+    <span class="token list punctuation">*</span> $∃w ∀z. (¬R(z) ∨ T(w))$
+<span class="token list punctuation">4.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Skolemization</span><span class="token punctuation">**</span></span>: Since $∃w$ is not within the scope of any universal quantifier, we introduce a Skolem constant (a 0-arity function), let's call it $c_1$, for <span class="token code-snippet code keyword">`w`</span>.
+    <span class="token list punctuation">*</span> $∀z. (¬R(z) ∨ T(c_1))$
+<span class="token list punctuation">5.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Remove ∀</span><span class="token punctuation">**</span></span> (implicit): $¬R(z) ∨ T(c_1)$
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C1:</span><span class="token punctuation">**</span></span> $¬R(z_1) ∨ T(c_1)$ (Variables standardized)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 2: $∀x ∃y. (∀z. (P(x) ∨ R(z)) ∧ ∃w. (T(w) → Q(y)))$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Eliminate → (inner)</span><span class="token punctuation">**</span></span>: $∀x ∃y. (∀z. (P(x) ∨ R(z)) ∧ ∃w. (¬T(w) ∨ Q(y)))$
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Convert to Prenex Normal Form</span><span class="token punctuation">**</span></span>: Move all quantifiers to the front to see dependencies clearly.
+    <span class="token list punctuation">*</span> $∀x ∃y ∀z ∃w. ((P(x) ∨ R(z)) ∧ (¬T(w) ∨ Q(y)))$
+<span class="token list punctuation">3.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Skolemization</span><span class="token punctuation">**</span></span>:
+    <span class="token list punctuation">*</span> $∃y$ is in the scope of $∀x$, so <span class="token code-snippet code keyword">`y`</span> becomes a Skolem function $g(x)$.
+    <span class="token list punctuation">*</span> $∃w$ is in the scope of $∀x$ and $∀z$, so <span class="token code-snippet code keyword">`w`</span> becomes a Skolem function $h(x, z)$.
+    <span class="token list punctuation">*</span> $∀x ∀z. ((P(x) ∨ R(z)) ∧ (¬T(h(x, z)) ∨ Q(g(x))))$
+<span class="token list punctuation">4.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Remove ∀</span><span class="token punctuation">**</span></span> and <span class="token bold"><span class="token punctuation">**</span><span class="token content">Distribute ∧</span><span class="token punctuation">**</span></span>:
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C2.1:</span><span class="token punctuation">**</span></span> $P(x_2) ∨ R(z_2)$ (Variables standardized)
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C2.2:</span><span class="token punctuation">**</span></span> $¬T(h(x_2, z_2)) ∨ Q(g(x_2))$ (Variables standardized)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 3: $∀w ∃y. (∀x. (P(x) → T(w)) ∧ ∀x. (Q(y) → P(x)))$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Eliminate →</span><span class="token punctuation">**</span></span>: $∀w ∃y. (∀x. (¬P(x) ∨ T(w)) ∧ ∀x'. (¬Q(y) ∨ P(x')))$ (Standardize inner <span class="token code-snippet code keyword">`x`</span>)
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Skolemization</span><span class="token punctuation">**</span></span>: $∃y$ is in the scope of $∀w$, so <span class="token code-snippet code keyword">`y`</span> becomes a Skolem function $k(w)$.
+    <span class="token list punctuation">*</span> $∀w. (∀x. (¬P(x) ∨ T(w)) ∧ ∀x'. (¬Q(k(w)) ∨ P(x')))$
+<span class="token list punctuation">3.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Remove ∀</span><span class="token punctuation">**</span></span> and <span class="token bold"><span class="token punctuation">**</span><span class="token content">Distribute ∧</span><span class="token punctuation">**</span></span>:
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C3.1:</span><span class="token punctuation">**</span></span> $¬P(x_3) ∨ T(w_3)$ (Variables standardized)
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C3.2:</span><span class="token punctuation">**</span></span> $¬Q(k(w_3)) ∨ P(x'_3)$ (Variables standardized)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 4: $∀x ∃z. (¬R(z) ∨ ¬Q(x))$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Skolemization</span><span class="token punctuation">**</span></span>: $∃z$ is in the scope of $∀x$, so <span class="token code-snippet code keyword">`z`</span> becomes a Skolem function $s(x)$.
+    <span class="token list punctuation">*</span> $∀x. (¬R(s(x)) ∨ ¬Q(x))$
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Remove ∀</span><span class="token punctuation">**</span></span>: $¬R(s(x)) ∨ ¬Q(x)$
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C4:</span><span class="token punctuation">**</span></span> $¬R(s(x_4)) ∨ ¬Q(x_4)$ (Variables standardized)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 5: $∀x. (U(x) → (P(x) ∨ ¬T(f(x))))$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Eliminate →</span><span class="token punctuation">**</span></span>: $∀x. (¬U(x) ∨ P(x) ∨ ¬T(f(x)))$
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Remove ∀</span><span class="token punctuation">**</span></span>: $¬U(x) ∨ P(x) ∨ ¬T(f(x))$
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C5:</span><span class="token punctuation">**</span></span> $¬U(x_5) ∨ P(x_5) ∨ ¬T(f(x_5))$ (Variables standardized)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 6: $∃x. (Q(x) ∧ ¬U(x))$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Skolemization</span><span class="token punctuation">**</span></span>: $∃x$ is not in the scope of any universal quantifier, so <span class="token code-snippet code keyword">`x`</span> becomes a Skolem constant $x_6$.
+    <span class="token list punctuation">*</span> $Q(x_6) ∧ ¬U(x_6)$
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Split ∧</span><span class="token punctuation">**</span></span> into two clauses:
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C6.1:</span><span class="token punctuation">**</span></span> $Q(x_6)$
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C6.2:</span><span class="token punctuation">**</span></span> $¬U(x_6)$
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 7: $∀x ∀y. (¬P(x) ∨ Q(y) ∨ S(x, y))$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Remove ∀</span><span class="token punctuation">**</span></span>: $¬P(x) ∨ Q(y) ∨ S(x, y)$
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C7:</span><span class="token punctuation">**</span></span> $¬P(x_7) ∨ Q(y_7) ∨ S(x_7, y_7)$ (Variables standardized)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Final Set of Standardized CNF Clauses</span>
+
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C1:</span><span class="token punctuation">**</span></span> $¬R(z_1) ∨ T(c_1)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C2.1:</span><span class="token punctuation">**</span></span> $P(x_2) ∨ R(z_2)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C2.2:</span><span class="token punctuation">**</span></span> $¬T(h(x_2, z_2)) ∨ Q(g(x_2))$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C3.1:</span><span class="token punctuation">**</span></span> $¬P(x_3) ∨ T(w_3)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C3.2:</span><span class="token punctuation">**</span></span> $¬Q(k(w_3)) ∨ P(x'_3)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C4:</span><span class="token punctuation">**</span></span> $¬R(s(x_4)) ∨ ¬Q(x_4)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C5:</span><span class="token punctuation">**</span></span> $¬U(x_5) ∨ P(x_5) ∨ ¬T(f(x_5))$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C6.1:</span><span class="token punctuation">**</span></span> $Q(x_6)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C6.2:</span><span class="token punctuation">**</span></span> $¬U(x_6)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C7:</span><span class="token punctuation">**</span></span> $¬P(x_7) ∨ Q(y_7) ∨ S(x_7, y_7)$
+
+<span class="token title important"><span class="token punctuation">##</span> (b) Apply resolution to prove or refute G: $∀x. P(x)$</span>
+
+To prove the goal $G: ∀x. P(x)$ using resolution, we first negate the goal and add its clausal form to our set of clauses. The aim is to derive a contradiction (the empty clause, $□$), which would prove that the original goal is a logical consequence of the premises.
+
+<span class="token title important"><span class="token punctuation">###</span> 1. Negate the Goal</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Goal</span><span class="token punctuation">**</span></span>: $G: ∀x. P(x)$
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Negated Goal</span><span class="token punctuation">**</span></span>: $¬G: ¬(∀x. P(x))$
+<span class="token list punctuation">3.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Move ¬ inwards</span><span class="token punctuation">**</span></span>: $∃x. ¬P(x)$
+<span class="token list punctuation">4.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Skolemization</span><span class="token punctuation">**</span></span>: Since $∃x$ is not in the scope of any universal quantifier, we introduce a Skolem constant, let's call it $A$.
+<span class="token list punctuation">5.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">New Clause (C8)</span><span class="token punctuation">**</span></span>: $¬P(A)$
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> 2. Resolution Proof</span>
+
+We will now use the clauses from part (a) along with our new clause $C8$ to find a contradiction. We will only list the clauses relevant to the proof path.
+
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C2.1:</span><span class="token punctuation">**</span></span> $P(x_2) ∨ R(z_2)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C4:</span><span class="token punctuation">**</span></span> $¬R(s(x_4)) ∨ ¬Q(x_4)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C6.1:</span><span class="token punctuation">**</span></span> $Q(x_6)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C8:</span><span class="token punctuation">**</span></span> $¬P(A)$ (Negated Goal)
+
+Here is the step-by-step derivation of the empty clause:
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Resolve C6.1 and C4:</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">*</span> $Q(x_6)$
+    <span class="token list punctuation">*</span> $¬R(s(x_4)) ∨ ¬Q(x_4)$
+    <span class="token list punctuation">*</span> With the Most General Unifier (MGU) $\{x_4 / x_6\}$.
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result (R1):</span><span class="token punctuation">**</span></span> $¬R(s(x_6))$
+
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Resolve R1 and C2.1:</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">*</span> $¬R(s(x_6))$
+    <span class="token list punctuation">*</span> $P(x_2) ∨ R(z_2)$
+    <span class="token list punctuation">*</span> With the MGU $\{z_2 / s(x_6)\}$.
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result (R2):</span><span class="token punctuation">**</span></span> $P(x_2)$
+
+<span class="token list punctuation">3.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Resolve R2 and C8:</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">*</span> $P(x_2)$
+    <span class="token list punctuation">*</span> $¬P(A)$
+    <span class="token list punctuation">*</span> With the MGU $\{x_2 / A\}$.
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result (R3):</span><span class="token punctuation">**</span></span> $□$ (The empty clause)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> 3. Conclusion</span>
+
+Since we have successfully derived the empty clause ($□$), we have found a contradiction. This means that the set of original clauses combined with the negated goal is unsatisfiable. Therefore, the original goal, <span class="token bold"><span class="token punctuation">**</span><span class="token content">$∀x. P(x)$, is proven to be a logical consequence of the given premises.</span><span class="token punctuation">**</span></span>
+
+<span class="token title important"><span class="token punctuation">##</span> (c) Discussion</span>
+
+<span class="token title important"><span class="token punctuation">###</span> (i) Which clauses are redundant?</span>
+
+In the context of the specific proof derived in part (b), a clause is <span class="token bold"><span class="token punctuation">**</span><span class="token content">redundant</span><span class="token punctuation">**</span></span> if it was not used to derive the empty clause. Based on our proof path, the following clauses were <span class="token bold"><span class="token punctuation">**</span><span class="token content">not</span><span class="token punctuation">**</span></span> used:
+
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C1:</span><span class="token punctuation">**</span></span> $¬R(z_1) ∨ T(c_1)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C2.2:</span><span class="token punctuation">**</span></span> $¬T(h(x_2, z_2)) ∨ Q(g(x_2))$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C3.1:</span><span class="token punctuation">**</span></span> $¬P(x_3) ∨ T(w_3)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C3.2:</span><span class="token punctuation">**</span></span> $¬Q(k(w_3)) ∨ P(x'_3)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C5:</span><span class="token punctuation">**</span></span> $¬U(x_5) ∨ P(x_5) ∨ ¬T(f(x_5))$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C6.2:</span><span class="token punctuation">**</span></span> $¬U(x_6)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C7:</span><span class="token punctuation">**</span></span> $¬P(x_7) ∨ Q(y_7) ∨ S(x_7, y_7)$
+
+Essentially, clauses <span class="token bold"><span class="token punctuation">**</span><span class="token content">1, 3, 5, and 7</span><span class="token punctuation">**</span></span>, along with parts of clauses <span class="token bold"><span class="token punctuation">**</span><span class="token content">2 and 6</span><span class="token punctuation">**</span></span>, were redundant for the short proof we found. It's important to note that just because they were unused in one proof does not mean they are useless for all possible proofs. However, for demonstrating the goal's validity, they were not required.
+
+Moreover, <span class="token bold"><span class="token punctuation">**</span><span class="token content">from semantic perspective, there are no redundant clauses</span><span class="token punctuation">**</span></span> because none of the clauses is entailed by the others.
+
+<span class="token title important"><span class="token punctuation">###</span> (ii) Which ones increase complexity the most?</span>
+
+The most complex clause here is arguably <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause 2</span><span class="token punctuation">**</span></span>:
+
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Complex Skolemization and Herbrand Universe Expansion</span><span class="token punctuation">**</span></span>: Its nested quantifier structure ($∀x ... ∃y ... ∀z ... ∃w$) leads to the Skolem function $h(x, z)$, which takes two arguments. While the complexity of a single unification step depends on term size, the primary issue here is the <span class="token bold"><span class="token punctuation">**</span><span class="token content">combinatorial explosion of the search space</span><span class="token punctuation">**</span></span>. A multi-argument function like <span class="token code-snippet code keyword">`h(x, z)`</span> vastly expands the Herbrand Universe (the set of possible ground terms) compared to a single-argument function. This creates an exponentially larger set of potential variable instantiations for the prover to consider, dramatically increasing the search complexity.
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause Splitting</span><span class="token punctuation">**</span></span>: It splits into two distinct CNF clauses ($C2.1$ and $C2.2$), increasing the initial size of the clause set.
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">High Connectivity</span><span class="token punctuation">**</span></span>: Its resulting clauses contain several common predicates ($P, R, T, Q$), creating a large branching factor for the theorem prover. This means they can resolve with many other clauses, creating numerous search paths that must be explored.
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause 3</span><span class="token punctuation">**</span></span> is also a significant source of complexity for similar reasons, though slightly less so as its Skolem function <span class="token code-snippet code keyword">`k(w)`</span> only takes one argument.
+
+Another key source of complexity is <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause 5</span><span class="token punctuation">**</span></span>:
+<span class="token list punctuation">*</span> It introduces a function symbol <span class="token code-snippet code keyword">`f(x)`</span> which, much like a Skolem function, expands the term space and the Herbrand universe.
+<span class="token list punctuation">*</span> As a three-literal clause, it increases the branching factor by offering more resolution possibilities.
+<span class="token list punctuation">*</span> The combination of a function symbol within a longer clause is a common "source of explosion" in practical implementations, as the complex term <span class="token code-snippet code keyword">`f(x)`</span> can be propagated into many new resolvents.
+
+Finally, <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause 7</span><span class="token punctuation">**</span></span> adds complexity in a different way. The predicate <span class="token code-snippet code keyword">`S`</span> appears only in this clause. Because no clause contains <span class="token code-snippet code keyword">`¬S`</span>, the <span class="token code-snippet code keyword">`S`</span> literal can never be resolved away. This means any resolution path that generates a clause containing <span class="token code-snippet code keyword">`S`</span> is <span class="token bold"><span class="token punctuation">**</span><span class="token content">unproductive for reaching the empty clause</span><span class="token punctuation">**</span></span>. The <span class="token code-snippet code keyword">`S`</span> literal is passively "dragged along" into new resolvents, increasing their length and the indexing burden on the prover, all without contributing to a successful proof.
+
+<span class="token title important"><span class="token punctuation">##</span> (d) Suppose clause 6 is removed. Does this impact provability of G?</span>
+
+Yes, removing <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause 6</span><span class="token punctuation">**</span></span> ($∃x. (Q(x) ∧ ¬U(x))$ → CNF: $Q(x_6)$ and $¬U(x_6)$) does impact provability.
+
+<span class="token title important"><span class="token punctuation">###</span> Explanation</span>
+
+In our resolution proof (part (b)), the <span class="token bold"><span class="token punctuation">**</span><span class="token content">key starting point</span><span class="token punctuation">**</span></span> was:
+
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C6.1:</span><span class="token punctuation">**</span></span> $Q(x_6)$  
+
+This fact was resolved with <span class="token bold"><span class="token punctuation">**</span><span class="token content">C4:</span><span class="token punctuation">**</span></span> $¬R(s(x)) ∨ ¬Q(x)$ to produce $¬R(s(x_6))$, which then fed into <span class="token bold"><span class="token punctuation">**</span><span class="token content">C2.1:</span><span class="token punctuation">**</span></span> $P(x) ∨ R(z)$, eventually giving us $P(x)$ and resolving with the negated goal $¬P(A)$ to reach a contradiction.
+
+If we remove <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause 6</span><span class="token punctuation">**</span></span>, we lose $Q(x_6)$. Without this ground fact, we cannot trigger the chain:
+
+$$Q(x_6) \;\;\Rightarrow\;\; ¬R(s(x_6)) \;\;\Rightarrow\;\; P(A) \;\;\Rightarrow\;\; □$$
+
+Thus, the contradiction cannot be reached, and the proof fails.
+
+<span class="token title important"><span class="token punctuation">###</span> Conclusion</span>
+
+<span class="token list punctuation">*</span> With Clause 6, the proof succeeds, and $∀x. P(x)$ is derivable.
+<span class="token list punctuation">*</span> Without Clause 6, the goal <span class="token bold"><span class="token punctuation">**</span><span class="token content">is not provable</span><span class="token punctuation">**</span></span> from the remaining clauses, at least not by the resolution path we constructed.  
+  More precisely: Clause 6 <span class="token bold"><span class="token punctuation">**</span><span class="token content">is essential</span><span class="token punctuation">**</span></span> because it provides a concrete witness for $Q$, which allows the chain of resolutions to begin.
+
+So, <span class="token bold"><span class="token punctuation">**</span><span class="token content">removing Clause 6 prevents proving $∀x. P(x)$.</span><span class="token punctuation">**</span></span>
+
+<span class="token title important"><span class="token punctuation">####</span> Countermodel (witness of non-entailment)</span>
+
+<span class="token list punctuation">-</span> Let the domain have at least two elements, e.g., \(\{a,b\}\).
+<span class="token list punctuation">-</span> Interpret: \(T(c_1)=\text{true}\) and \(T(t)=\text{false}\) for all ground terms \(t\neq c_1\); make \(R\) true everywhere; make \(Q\) false everywhere; make \(P\) false everywhere.
+<span class="token list punctuation">-</span> Choose the Skolem/function symbols as follows: let \(h(x,z)=b\) for all \(x,z\) (so \(h(x,z)\neq c_1\)); \(g,k,f,s\) can be arbitrary consistent functions; set \(U\) false everywhere; \(S\) arbitrary.
+<span class="token list punctuation">-</span> Then all clauses except 6 hold: 
+  <span class="token list punctuation">-</span> C1 holds because \(T(c_1)=\text{true}\).
+  <span class="token list punctuation">-</span> C2.1 holds since \(R\) is always true; C2.2 holds since \(T(h(x,z))=\text{false}\) and \(Q\) is always false, so \(\neg T(h(x,z))\) is true.
+  <span class="token list punctuation">-</span> C3.1 and C3.2 hold because \(P\) is always false and \(Q\) is always false.
+  <span class="token list punctuation">-</span> C4 holds because \(\neg Q(x)\) is always true; C5 holds because \(\neg U(x)\) is always true; C7 holds because \(\neg P(x)\) is always true.
+<span class="token list punctuation">-</span> However, \(\forall x. P(x)\) is false in this structure. Hence, after removing clause 6, \(\forall x. P(x)\) is not entailed by the remaining clauses.
+
+</code></pre><p>已将精炼“反例模型”添加到 (d) 末尾，严格支撑“移除子句 6 后不可证明”的结论；无新增语法/格式问题。</p>
+<ul>
+<li>变更位置: <code>q3.md</code> 的 (d) 部分结尾新增小节 “Countermodel (witness of non-entailment)”</li>
+<li>核心内容: 构造一个两元域模型，使 C1、C2、C3、C4、C5、C7 全为真，但 <code>∀x.P(x)</code> 为假，从而证明去掉 6 后不蕴含目标。</li>
+</ul>
+<hr>
+<p><strong>User</strong></p>
+<ol>
+<li>需要更加简短</li>
+<li>需要使用<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span>格式的LaTex写法</li>
+</ol>
+<hr>
+<p><strong>Cursor</strong></p>
+<p>我将把 (d) 末尾的“Counterexample”段落改成更简短且统一用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span> 形式的 LaTeX，并检查是否有新的问题。</p>
+<p>我将精简并改为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span> LaTeX 的“Counterexample”段落，然后检查是否有新的问题。</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> Q3</span>
+
+<span class="token blockquote punctuation">&gt;</span> We have below clauses:
+<span class="token blockquote punctuation">&gt;</span> 
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">1.</span> $∃z. R(z) → ∃w. T(w)$
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">2.</span> $∀x ∃y. (∀z. (P(x) ∨ R(z)) ∧ ∃w. (T(w) → Q(y)))$
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">3.</span> $∀w ∃y. (∀x. (P(x) → T(w)) ∧ ∀x. (Q(y) → P(x)))$
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">4.</span> $∀x ∃z. (¬R(z) ∨ ¬Q(x))$
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">5.</span> $∀x. (U(x) → (P(x) ∨ ¬T(f(x))))$
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">6.</span> $∃x. (Q(x) ∧ ¬U(x))$
+<span class="token blockquote punctuation">&gt;</span> <span class="token list punctuation">7.</span> $∀x ∀y. (¬P(x) ∨ Q(y) ∨ S(x, y))$
+<span class="token blockquote punctuation">&gt;</span> 
+<span class="token blockquote punctuation">&gt;</span> Goal: $∀x. P(x)$
+
+<span class="token title important"><span class="token punctuation">##</span> (a) Convert all into CNF. Show Skolemization and standardization.</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 1: $∃z. R(z) → ∃w. T(w)$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Eliminate →</span><span class="token punctuation">**</span></span>: $¬(∃z. R(z)) ∨ (∃w. T(w))$
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Move ¬ inwards</span><span class="token punctuation">**</span></span>: $(∀z. ¬R(z)) ∨ (∃w. T(w))$
+<span class="token list punctuation">3.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Convert to Prenex Normal Form</span><span class="token punctuation">**</span></span>: The quantifiers for <span class="token code-snippet code keyword">`z`</span> and <span class="token code-snippet code keyword">`w`</span> are in separate, disjoint scopes. Therefore, the choice of <span class="token code-snippet code keyword">`w`</span> is <span class="token bold"><span class="token punctuation">**</span><span class="token content">independent</span><span class="token punctuation">**</span></span> of <span class="token code-snippet code keyword">`z`</span>. The existential quantifier can and should be moved to the front to reflect this independence.
+    <span class="token list punctuation">*</span> $∃w ∀z. (¬R(z) ∨ T(w))$
+<span class="token list punctuation">4.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Skolemization</span><span class="token punctuation">**</span></span>: Since $∃w$ is not within the scope of any universal quantifier, we introduce a Skolem constant (a 0-arity function), let's call it $c_1$, for <span class="token code-snippet code keyword">`w`</span>.
+    <span class="token list punctuation">*</span> $∀z. (¬R(z) ∨ T(c_1))$
+<span class="token list punctuation">5.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Remove ∀</span><span class="token punctuation">**</span></span> (implicit): $¬R(z) ∨ T(c_1)$
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C1:</span><span class="token punctuation">**</span></span> $¬R(z_1) ∨ T(c_1)$ (Variables standardized)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 2: $∀x ∃y. (∀z. (P(x) ∨ R(z)) ∧ ∃w. (T(w) → Q(y)))$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Eliminate → (inner)</span><span class="token punctuation">**</span></span>: $∀x ∃y. (∀z. (P(x) ∨ R(z)) ∧ ∃w. (¬T(w) ∨ Q(y)))$
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Convert to Prenex Normal Form</span><span class="token punctuation">**</span></span>: Move all quantifiers to the front to see dependencies clearly.
+    <span class="token list punctuation">*</span> $∀x ∃y ∀z ∃w. ((P(x) ∨ R(z)) ∧ (¬T(w) ∨ Q(y)))$
+<span class="token list punctuation">3.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Skolemization</span><span class="token punctuation">**</span></span>:
+    <span class="token list punctuation">*</span> $∃y$ is in the scope of $∀x$, so <span class="token code-snippet code keyword">`y`</span> becomes a Skolem function $g(x)$.
+    <span class="token list punctuation">*</span> $∃w$ is in the scope of $∀x$ and $∀z$, so <span class="token code-snippet code keyword">`w`</span> becomes a Skolem function $h(x, z)$.
+    <span class="token list punctuation">*</span> $∀x ∀z. ((P(x) ∨ R(z)) ∧ (¬T(h(x, z)) ∨ Q(g(x))))$
+<span class="token list punctuation">4.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Remove ∀</span><span class="token punctuation">**</span></span> and <span class="token bold"><span class="token punctuation">**</span><span class="token content">Distribute ∧</span><span class="token punctuation">**</span></span>:
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C2.1:</span><span class="token punctuation">**</span></span> $P(x_2) ∨ R(z_2)$ (Variables standardized)
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C2.2:</span><span class="token punctuation">**</span></span> $¬T(h(x_2, z_2)) ∨ Q(g(x_2))$ (Variables standardized)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 3: $∀w ∃y. (∀x. (P(x) → T(w)) ∧ ∀x. (Q(y) → P(x)))$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Eliminate →</span><span class="token punctuation">**</span></span>: $∀w ∃y. (∀x. (¬P(x) ∨ T(w)) ∧ ∀x'. (¬Q(y) ∨ P(x')))$ (Standardize inner <span class="token code-snippet code keyword">`x`</span>)
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Skolemization</span><span class="token punctuation">**</span></span>: $∃y$ is in the scope of $∀w$, so <span class="token code-snippet code keyword">`y`</span> becomes a Skolem function $k(w)$.
+    <span class="token list punctuation">*</span> $∀w. (∀x. (¬P(x) ∨ T(w)) ∧ ∀x'. (¬Q(k(w)) ∨ P(x')))$
+<span class="token list punctuation">3.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Remove ∀</span><span class="token punctuation">**</span></span> and <span class="token bold"><span class="token punctuation">**</span><span class="token content">Distribute ∧</span><span class="token punctuation">**</span></span>:
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C3.1:</span><span class="token punctuation">**</span></span> $¬P(x_3) ∨ T(w_3)$ (Variables standardized)
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C3.2:</span><span class="token punctuation">**</span></span> $¬Q(k(w_3)) ∨ P(x'_3)$ (Variables standardized)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 4: $∀x ∃z. (¬R(z) ∨ ¬Q(x))$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Skolemization</span><span class="token punctuation">**</span></span>: $∃z$ is in the scope of $∀x$, so <span class="token code-snippet code keyword">`z`</span> becomes a Skolem function $s(x)$.
+    <span class="token list punctuation">*</span> $∀x. (¬R(s(x)) ∨ ¬Q(x))$
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Remove ∀</span><span class="token punctuation">**</span></span>: $¬R(s(x)) ∨ ¬Q(x)$
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C4:</span><span class="token punctuation">**</span></span> $¬R(s(x_4)) ∨ ¬Q(x_4)$ (Variables standardized)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 5: $∀x. (U(x) → (P(x) ∨ ¬T(f(x))))$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Eliminate →</span><span class="token punctuation">**</span></span>: $∀x. (¬U(x) ∨ P(x) ∨ ¬T(f(x)))$
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Remove ∀</span><span class="token punctuation">**</span></span>: $¬U(x) ∨ P(x) ∨ ¬T(f(x))$
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C5:</span><span class="token punctuation">**</span></span> $¬U(x_5) ∨ P(x_5) ∨ ¬T(f(x_5))$ (Variables standardized)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 6: $∃x. (Q(x) ∧ ¬U(x))$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Skolemization</span><span class="token punctuation">**</span></span>: $∃x$ is not in the scope of any universal quantifier, so <span class="token code-snippet code keyword">`x`</span> becomes a Skolem constant $x_6$.
+    <span class="token list punctuation">*</span> $Q(x_6) ∧ ¬U(x_6)$
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Split ∧</span><span class="token punctuation">**</span></span> into two clauses:
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C6.1:</span><span class="token punctuation">**</span></span> $Q(x_6)$
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C6.2:</span><span class="token punctuation">**</span></span> $¬U(x_6)$
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Clause 7: $∀x ∀y. (¬P(x) ∨ Q(y) ∨ S(x, y))$</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Remove ∀</span><span class="token punctuation">**</span></span>: $¬P(x) ∨ Q(y) ∨ S(x, y)$
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result C7:</span><span class="token punctuation">**</span></span> $¬P(x_7) ∨ Q(y_7) ∨ S(x_7, y_7)$ (Variables standardized)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Final Set of Standardized CNF Clauses</span>
+
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C1:</span><span class="token punctuation">**</span></span> $¬R(z_1) ∨ T(c_1)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C2.1:</span><span class="token punctuation">**</span></span> $P(x_2) ∨ R(z_2)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C2.2:</span><span class="token punctuation">**</span></span> $¬T(h(x_2, z_2)) ∨ Q(g(x_2))$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C3.1:</span><span class="token punctuation">**</span></span> $¬P(x_3) ∨ T(w_3)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C3.2:</span><span class="token punctuation">**</span></span> $¬Q(k(w_3)) ∨ P(x'_3)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C4:</span><span class="token punctuation">**</span></span> $¬R(s(x_4)) ∨ ¬Q(x_4)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C5:</span><span class="token punctuation">**</span></span> $¬U(x_5) ∨ P(x_5) ∨ ¬T(f(x_5))$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C6.1:</span><span class="token punctuation">**</span></span> $Q(x_6)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C6.2:</span><span class="token punctuation">**</span></span> $¬U(x_6)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C7:</span><span class="token punctuation">**</span></span> $¬P(x_7) ∨ Q(y_7) ∨ S(x_7, y_7)$
+
+<span class="token title important"><span class="token punctuation">##</span> (b) Apply resolution to prove or refute G: $∀x. P(x)$</span>
+
+To prove the goal $G: ∀x. P(x)$ using resolution, we first negate the goal and add its clausal form to our set of clauses. The aim is to derive a contradiction (the empty clause, $□$), which would prove that the original goal is a logical consequence of the premises.
+
+<span class="token title important"><span class="token punctuation">###</span> 1. Negate the Goal</span>
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Goal</span><span class="token punctuation">**</span></span>: $G: ∀x. P(x)$
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Negated Goal</span><span class="token punctuation">**</span></span>: $¬G: ¬(∀x. P(x))$
+<span class="token list punctuation">3.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Move ¬ inwards</span><span class="token punctuation">**</span></span>: $∃x. ¬P(x)$
+<span class="token list punctuation">4.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Skolemization</span><span class="token punctuation">**</span></span>: Since $∃x$ is not in the scope of any universal quantifier, we introduce a Skolem constant, let's call it $A$.
+<span class="token list punctuation">5.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">New Clause (C8)</span><span class="token punctuation">**</span></span>: $¬P(A)$
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> 2. Resolution Proof</span>
+
+We will now use the clauses from part (a) along with our new clause $C8$ to find a contradiction. We will only list the clauses relevant to the proof path.
+
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C2.1:</span><span class="token punctuation">**</span></span> $P(x_2) ∨ R(z_2)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C4:</span><span class="token punctuation">**</span></span> $¬R(s(x_4)) ∨ ¬Q(x_4)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C6.1:</span><span class="token punctuation">**</span></span> $Q(x_6)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C8:</span><span class="token punctuation">**</span></span> $¬P(A)$ (Negated Goal)
+
+Here is the step-by-step derivation of the empty clause:
+
+<span class="token list punctuation">1.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Resolve C6.1 and C4:</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">*</span> $Q(x_6)$
+    <span class="token list punctuation">*</span> $¬R(s(x_4)) ∨ ¬Q(x_4)$
+    <span class="token list punctuation">*</span> With the Most General Unifier (MGU) $\{x_4 / x_6\}$.
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result (R1):</span><span class="token punctuation">**</span></span> $¬R(s(x_6))$
+
+<span class="token list punctuation">2.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Resolve R1 and C2.1:</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">*</span> $¬R(s(x_6))$
+    <span class="token list punctuation">*</span> $P(x_2) ∨ R(z_2)$
+    <span class="token list punctuation">*</span> With the MGU $\{z_2 / s(x_6)\}$.
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result (R2):</span><span class="token punctuation">**</span></span> $P(x_2)$
+
+<span class="token list punctuation">3.</span>  <span class="token bold"><span class="token punctuation">**</span><span class="token content">Resolve R2 and C8:</span><span class="token punctuation">**</span></span>
+    <span class="token list punctuation">*</span> $P(x_2)$
+    <span class="token list punctuation">*</span> $¬P(A)$
+    <span class="token list punctuation">*</span> With the MGU $\{x_2 / A\}$.
+    <span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Result (R3):</span><span class="token punctuation">**</span></span> $□$ (The empty clause)
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">###</span> 3. Conclusion</span>
+
+Since we have successfully derived the empty clause ($□$), we have found a contradiction. This means that the set of original clauses combined with the negated goal is unsatisfiable. Therefore, the original goal, <span class="token bold"><span class="token punctuation">**</span><span class="token content">$∀x. P(x)$, is proven to be a logical consequence of the given premises.</span><span class="token punctuation">**</span></span>
+
+<span class="token title important"><span class="token punctuation">##</span> (c) Discussion</span>
+
+<span class="token title important"><span class="token punctuation">###</span> (i) Which clauses are redundant?</span>
+
+In the context of the specific proof derived in part (b), a clause is <span class="token bold"><span class="token punctuation">**</span><span class="token content">redundant</span><span class="token punctuation">**</span></span> if it was not used to derive the empty clause. Based on our proof path, the following clauses were <span class="token bold"><span class="token punctuation">**</span><span class="token content">not</span><span class="token punctuation">**</span></span> used:
+
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C1:</span><span class="token punctuation">**</span></span> $¬R(z_1) ∨ T(c_1)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C2.2:</span><span class="token punctuation">**</span></span> $¬T(h(x_2, z_2)) ∨ Q(g(x_2))$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C3.1:</span><span class="token punctuation">**</span></span> $¬P(x_3) ∨ T(w_3)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C3.2:</span><span class="token punctuation">**</span></span> $¬Q(k(w_3)) ∨ P(x'_3)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C5:</span><span class="token punctuation">**</span></span> $¬U(x_5) ∨ P(x_5) ∨ ¬T(f(x_5))$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C6.2:</span><span class="token punctuation">**</span></span> $¬U(x_6)$
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C7:</span><span class="token punctuation">**</span></span> $¬P(x_7) ∨ Q(y_7) ∨ S(x_7, y_7)$
+
+Essentially, clauses <span class="token bold"><span class="token punctuation">**</span><span class="token content">1, 3, 5, and 7</span><span class="token punctuation">**</span></span>, along with parts of clauses <span class="token bold"><span class="token punctuation">**</span><span class="token content">2 and 6</span><span class="token punctuation">**</span></span>, were redundant for the short proof we found. It's important to note that just because they were unused in one proof does not mean they are useless for all possible proofs. However, for demonstrating the goal's validity, they were not required.
+
+Moreover, <span class="token bold"><span class="token punctuation">**</span><span class="token content">from semantic perspective, there are no redundant clauses</span><span class="token punctuation">**</span></span> because none of the clauses is entailed by the others.
+
+<span class="token title important"><span class="token punctuation">###</span> (ii) Which ones increase complexity the most?</span>
+
+The most complex clause here is arguably <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause 2</span><span class="token punctuation">**</span></span>:
+
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Complex Skolemization and Herbrand Universe Expansion</span><span class="token punctuation">**</span></span>: Its nested quantifier structure ($∀x ... ∃y ... ∀z ... ∃w$) leads to the Skolem function $h(x, z)$, which takes two arguments. While the complexity of a single unification step depends on term size, the primary issue here is the <span class="token bold"><span class="token punctuation">**</span><span class="token content">combinatorial explosion of the search space</span><span class="token punctuation">**</span></span>. A multi-argument function like <span class="token code-snippet code keyword">`h(x, z)`</span> vastly expands the Herbrand Universe (the set of possible ground terms) compared to a single-argument function. This creates an exponentially larger set of potential variable instantiations for the prover to consider, dramatically increasing the search complexity.
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause Splitting</span><span class="token punctuation">**</span></span>: It splits into two distinct CNF clauses ($C2.1$ and $C2.2$), increasing the initial size of the clause set.
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">High Connectivity</span><span class="token punctuation">**</span></span>: Its resulting clauses contain several common predicates ($P, R, T, Q$), creating a large branching factor for the theorem prover. This means they can resolve with many other clauses, creating numerous search paths that must be explored.
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause 3</span><span class="token punctuation">**</span></span> is also a significant source of complexity for similar reasons, though slightly less so as its Skolem function <span class="token code-snippet code keyword">`k(w)`</span> only takes one argument.
+
+Another key source of complexity is <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause 5</span><span class="token punctuation">**</span></span>:
+<span class="token list punctuation">*</span> It introduces a function symbol <span class="token code-snippet code keyword">`f(x)`</span> which, much like a Skolem function, expands the term space and the Herbrand universe.
+<span class="token list punctuation">*</span> As a three-literal clause, it increases the branching factor by offering more resolution possibilities.
+<span class="token list punctuation">*</span> The combination of a function symbol within a longer clause is a common "source of explosion" in practical implementations, as the complex term <span class="token code-snippet code keyword">`f(x)`</span> can be propagated into many new resolvents.
+
+Finally, <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause 7</span><span class="token punctuation">**</span></span> adds complexity in a different way. The predicate <span class="token code-snippet code keyword">`S`</span> appears only in this clause. Because no clause contains <span class="token code-snippet code keyword">`¬S`</span>, the <span class="token code-snippet code keyword">`S`</span> literal can never be resolved away. This means any resolution path that generates a clause containing <span class="token code-snippet code keyword">`S`</span> is <span class="token bold"><span class="token punctuation">**</span><span class="token content">unproductive for reaching the empty clause</span><span class="token punctuation">**</span></span>. The <span class="token code-snippet code keyword">`S`</span> literal is passively "dragged along" into new resolvents, increasing their length and the indexing burden on the prover, all without contributing to a successful proof.
+
+<span class="token title important"><span class="token punctuation">##</span> (d) Suppose clause 6 is removed. Does this impact provability of G?</span>
+
+Yes, removing <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause 6</span><span class="token punctuation">**</span></span> ($∃x. (Q(x) ∧ ¬U(x))$ → CNF: $Q(x_6)$ and $¬U(x_6)$) does impact provability.
+
+<span class="token title important"><span class="token punctuation">###</span> Explanation</span>
+
+In our resolution proof (part (b)), the <span class="token bold"><span class="token punctuation">**</span><span class="token content">key starting point</span><span class="token punctuation">**</span></span> was:
+
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">C6.1:</span><span class="token punctuation">**</span></span> $Q(x_6)$  
+
+This fact was resolved with <span class="token bold"><span class="token punctuation">**</span><span class="token content">C4:</span><span class="token punctuation">**</span></span> $¬R(s(x)) ∨ ¬Q(x)$ to produce $¬R(s(x_6))$, which then fed into <span class="token bold"><span class="token punctuation">**</span><span class="token content">C2.1:</span><span class="token punctuation">**</span></span> $P(x) ∨ R(z)$, eventually giving us $P(x)$ and resolving with the negated goal $¬P(A)$ to reach a contradiction.
+
+If we remove <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clause 6</span><span class="token punctuation">**</span></span>, we lose $Q(x_6)$. Without this ground fact, we cannot trigger the chain:
+
+$$Q(x_6) \;\;\Rightarrow\;\; ¬R(s(x_6)) \;\;\Rightarrow\;\; P(A) \;\;\Rightarrow\;\; □$$
+
+Thus, the contradiction cannot be reached, and the proof fails.
+
+<span class="token title important"><span class="token punctuation">###</span> Conclusion</span>
+
+<span class="token list punctuation">*</span> With Clause 6, the proof succeeds, and $∀x. P(x)$ is derivable.
+<span class="token list punctuation">*</span> Without Clause 6, the goal <span class="token bold"><span class="token punctuation">**</span><span class="token content">is not provable</span><span class="token punctuation">**</span></span> from the remaining clauses, at least not by the resolution path we constructed.  
+  More precisely: Clause 6 <span class="token bold"><span class="token punctuation">**</span><span class="token content">is essential</span><span class="token punctuation">**</span></span> because it provides a concrete witness for $Q$, which allows the chain of resolutions to begin.
+
+So, <span class="token bold"><span class="token punctuation">**</span><span class="token content">removing Clause 6 prevents proving $∀x. P(x)$.</span><span class="token punctuation">**</span></span>
+
+<span class="token title important"><span class="token punctuation">####</span> Counterexample (witness of non-entailment)</span>
+
+<span class="token list punctuation">-</span> Domain: $\{a,b\}$.
+<span class="token list punctuation">-</span> Interpret: $T(c_1)=\mathrm{true}$; $T(t)=\mathrm{false}$ for $t\neq c_1$; $R$ always true; $Q$ always false; $P$ always false; $U$ always false; $S$ arbitrary; $h(x,z)=b$; $g,k,f,s$ arbitrary.
+<span class="token list punctuation">-</span> Then all clauses except 6 hold; however $\forall x\,P(x)$ is false. Hence, after removing 6, $\forall x\,P(x)$ is not entailed.
+
+</code></pre><p>已将该段落精简并统一为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span> LaTeX 形式，且无新增问题。</p>
+<ul>
+<li>改动点: 将 “Counterexample” 段落压缩为 3 行，统一使用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span>，保留必要函数/谓词设定与结论。</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
